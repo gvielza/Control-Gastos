@@ -3,14 +3,15 @@ import ControlPresupuesto from './ControlPresupuesto';
 import NuevoPresupuesto from './NuevoPresupuesto';
 
 
-const Header = ({presupuesto,setPresupuesto,isValidPresupuesto,setIsValidPresupeusto}) => {
+const Header = ({presupuesto,setPresupuesto,isValidPresupuesto,setIsValidPresupeusto,gastos}) => {
     return (
         <header>
         <h1>
            Planificador de Gastos  </h1>
            {isValidPresupuesto ? (
            <ControlPresupuesto 
-           presupuesto={presupuesto}/>
+           presupuesto={presupuesto}
+           gastos={gastos}/>
            ):(
                <NuevoPresupuesto
                presupuesto={presupuesto}
