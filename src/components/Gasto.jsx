@@ -17,25 +17,7 @@ import {
   } from 'react-swipeable-list';
   import 'react-swipeable-list/dist/styles.css';
 
-  const leadingActions = () => (
-    <LeadingActions>
-      <SwipeAction onClick={() => console.info('swipe action triggered')}>
-        Editar
-      </SwipeAction>
-    </LeadingActions>
-  );
   
-  const trailingActions = () => (
-    <TrailingActions>
-      <SwipeAction
-        destructive={true}
-        onClick={() => console.info('swipe action triggered')}
-      >
-        Eliminar
-      </SwipeAction>
-    </TrailingActions>
-  );
-
 const diccionarioIconos={
    ahorro:IconoAhorro,
    comida: IconoComida,
@@ -47,7 +29,28 @@ const diccionarioIconos={
     
 }
 
-const Gasto = ({gasto}) => {
+const Gasto = ({gasto,setGastoEditar,eliminarGasto}) => {
+
+  const leadingActions = () => (
+    <LeadingActions>
+      <SwipeAction onClick={() => setGastoEditar(gasto)}>
+        Editar
+      </SwipeAction>
+    </LeadingActions>
+  );
+  
+  const trailingActions = () => (
+    <TrailingActions>
+      <SwipeAction
+        
+        onClick={() => eliminarGasto(id)}
+        destructive={true}
+      >
+        Eliminar
+      </SwipeAction>
+    </TrailingActions>
+  );
+
     //objeto gasto para acceder más fácil a sus propiedades
     const{categoria,nombre,cantidad, id,fecha}=gasto;
     return (
